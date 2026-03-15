@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="page-title"><h1>Recipe Search</h1><p>Get recipe details from TheMealDB.</p></section>
+<section class="card">
+  <div class="form-row" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+    <input id="mealQuery" placeholder="Enter meal name (e.g. Chicken)" style="flex:1;min-width:170px;"/>
+    <select id="recipeSource" style="padding:.45rem;border-radius:8px;background:#111;color:#fff;border:1px solid #555;"><option value="mealdb">Open MealDB</option><option value="local">Local Smart Recipes</option><option value="ai">AI Recipe Extractor</option></select>
+  </div>
+  <button id="getRecipe" class="btn">Search Recipe</button>
+  <p class="small">Tip: recipe search auto fills last selected dish from dishes page.</p>
+  <div id="recipeResult"></div>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <div>
+    <h1>Welcome to LifeByte</h1>
+    <p>Weather-aware health and food guidance.</p>
+  </div>
+</section>
+<section class="card-grid">
+  <div class="card">
+    <h2>Current Weather</h2>
+    <div id="weatherInfo">Loading weather...</div>
+    <p id="quote" class="quote"></p>
+  </div>
+  <div class="card">
+    <h2>Weather Quiz</h2>
+    <p>Guess today’s weather:</p>
+    <div class="grid-2">
+      <button class="option" data-answer="sunny">Sunny</button>
+      <button class="option" data-answer="rainy">Rainy</button>
+      <button class="option" data-answer="cloudy">Cloudy</button>
+      <button class="option" data-answer="cold">Cold</button>
+    </div>
+    <p id="quizResult"></p>
+  </div>
+</section>
+<section class="card">
+  <h3>Search Location Weather</h3>
+  <div class="form-row" style="display:flex;gap:.5rem;flex-wrap:wrap;">
+    <input id="locationInput" placeholder="Enter city (e.g. Karur, India)" style="flex:1;min-width:160px;padding:.45rem; border-radius:8px; border:1px solid #444; background:#111; color:#fff;"/>
+    <button id="locationSearch" class="btn">Load Weather</button>
+  </div>
+  <p id="locationStatus" style="margin-top:.4rem;color:#ccc;"></p>
+</section>
+{% if not profile %}
+<section class="card warning">
+  <h3>First-time setup</h3>
+  <p>Please complete your health profile to unlock dish evaluation.</p>
+  <a class="btn" href="/profile">Create Profile</a>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="page-title">
+  <h1>Your Health Profile</h1>
+  <p>Update your wellness settings anytime.</p>
+</section>
+<section class="card">
+  {% if profile %}
+  <div class="profile-grid">
+    <div><strong>Name:</strong> {{ profile.name }}</div>
+    <div><strong>Age:</strong> {{ profile.age }}</div>
+    <div><strong>Height:</strong> {{ profile.height }} cm</div>
+    <div><strong>Weight:</strong> {{ profile.weight }} kg</div>
+    <div><strong>Blood Pressure:</strong> {{ profile.blood_pressure }}</div>
+    <div><strong>Pressure Status:</strong> {{ profile.pressure_status }}</div>
+    <div><strong>Diabetes:</strong> {{ profile.diabetes }}</div>
+    <div><strong>Cardiac:</strong> {{ profile.cardiac }}</div>
+    <div><strong>Pregnant:</strong> {{ profile.pregnant }}</div>
+    <div><strong>Location:</strong> {{ profile.location }}</div>
+    <div><strong>Calorie Goal:</strong> {{ profile.calorie_goal }}</div>
+    <div><strong>Food Preference:</strong> {{ profile.preference }}</div>
+  </div>
+  {% else %}
+  <p class="warning">No health profile found. Please complete the form below.</p>
+  {% endif %}
+
+  <form id="profileUpdateForm" class="form-grid">
+    <label>Name <input name="name" required value="{{ profile.name if profile else '' }}" /></label>
+    <label>Age <input type="number" name="age" required value="{{ profile.age if profile else '' }}" /></label>
+    <label>Height (cm) <input type="number" step="0.1" name="height" required value="{{ profile.height if profile else '' }}" /></label>
+    <label>Weight (kg) <input type="number" step="0.1" name="weight" required value="{{ profile.weight if profile else '' }}" /></label>
+    <label>Blood Pressure <select name="blood_pressure"><option {% if profile and profile.blood_pressure=='Normal' %}selected{% endif %}>Normal</option><option {% if profile and profile.blood_pressure=='High' %}selected{% endif %}>High</option></select></label>
+    <label>Pressure Status <select name="pressure_status"><option {% if profile and profile.pressure_status=='Low' %}selected{% endif %}>Low</option><option {% if profile and profile.pressure_status=='Normal' %}selected{% endif %}>Normal</option><option {% if profile and profile.pressure_status=='High' %}selected{% endif %}>High</option></select></label>
+    <label>Diabetes <select name="diabetes"><option {% if profile and profile.diabetes=='No' %}selected{% endif %}>No</option><option {% if profile and profile.diabetes=='Yes' %}selected{% endif %}>Yes</option></select></label>
+    <label>Cholesterol <input type="text" name="cholesterol" required value="{{ profile.cholesterol if profile else '' }}" /></label>
+    <label>Cardiac Patient <select name="cardiac"><option {% if profile and profile.cardiac=='No' %}selected{% endif %}>No</option><option {% if profile and profile.cardiac=='Yes' %}selected{% endif %}>Yes</option></select></label>
+    <label>Female Pregnant <select name="pregnant"><option {% if profile and profile.pregnant=='No' %}selected{% endif %}>No</option><option {% if profile and profile.pregnant=='Yes' %}selected{% endif %}>Yes</option></select></label>
+    <label>Location <input name="location" required value="{{ profile.location if profile else '' }}" /></label>
+    <label>Calorie Goal <input type="number" name="calorie_goal" required value="{{ profile.calorie_goal if profile else '' }}" /></label>
+    <label>Food Preference <select name="preference"><option {% if profile and profile.preference=='Veg' %}selected{% endif %}>Veg</option><option {% if profile and profile.preference=='Non-Veg' %}selected{% endif %}>Non-Veg</option><option {% if profile and profile.preference=='Both' %}selected{% endif %}>Both</option></select></label>
+    <div class="full-row"><button type="submit" class="btn">Save Profile</button></div>
+  </form>
+  <p id="updateMsg" class="small"></p>
+</section>
+{% endblock %}
