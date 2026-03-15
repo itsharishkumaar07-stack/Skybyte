@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LifeByte</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">Γ¥ñ</span> LifeByte</div>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/weather">Weather</a>
+      <a href="/dishes">Dishes</a>
+      <a href="/restaurants">Restaurants</a>
+      <a href="/recipe">Recipe</a>
+      <a href="/profile">Profile</a>
+    </nav>
+  </header>
+  <main class="page">
+    
+<section class="hero">
+  <div>
+    <h1>Welcome to LifeByte</h1>
+    <p>Weather-aware health and food guidance.</p>
+  </div>
+</section>
+<section class="card-grid">
+  <div class="card">
+    <h2>Current Weather</h2>
+    <div id="weatherInfo">Loading weather...</div>
+    <p id="quote" class="quote"></p>
+  </div>
+  <div class="card">
+    <h2>Weather Quiz</h2>
+    <p>Guess todayΓÇÖs weather:</p>
+    <div class="grid-2">
+      <button class="option" data-answer="sunny">Sunny</button>
+      <button class="option" data-answer="rainy">Rainy</button>
+      <button class="option" data-answer="cloudy">Cloudy</button>
+      <button class="option" data-answer="cold">Cold</button>
+    </div>
+    <p id="quizResult"></p>
+  </div>
+</section>
+
+<section class="card warning">
+  <h3>First-time setup</h3>
+  <p>Please complete your health profile to unlock dish evaluation.</p>
+  <a class="btn" href="/profile">Create Profile</a>
+</section>
+
+
+  </main>
+  <footer class="footer">LifeByte ┬╖ Eat smarter, live healthier</footer>
+  <script src="/static/script.js"></script>
+</body>
+</html>
